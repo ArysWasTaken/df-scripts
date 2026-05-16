@@ -16,12 +16,6 @@ function getActualSlotId(slotNumber, inventoryType)
     return slotNumber;
 }
 
-function reloadStorage(data)
-{
-    unsafeWindow.reloadStorageData(data);
-    unsafeWindow.populateBackpack();
-}
-
 const internalTransactionHandler = {
     handleBackpackToStorageOneWay(requestParams, itemSlots)
     {
@@ -216,5 +210,10 @@ window.InventoryTransactionHandler = {
         const matchedRule = transactionRules.find(rule => rule.condition(itemSlots));
         let success = matchedRule?.onConditionSuccess(requestParams, itemSlots) ?? false;
         return success;
+    },
+    reloadStorage(data)
+    {
+        unsafeWindow.reloadStorageData(data);
+        unsafeWindow.populateBackpack();
     }
 };
