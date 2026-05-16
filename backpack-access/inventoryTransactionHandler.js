@@ -173,7 +173,21 @@ const internalTransactionHandler = {
     handleBackpackToInventoryInStorage(requestParams, itemSlots)
     {
         unsafeWindow.playSound("swap");
+
+        const sourceItemType = itemSlots[0][1];
+        const sourceInvType = itemSlots[0][2];
+        const sourceSlotId = getActualSlotId(itemSlots[0][0], sourceInvType);
+
+        const destItemType = itemSlots[1][1];
+        const destInvType = itemSlots[1][2];
+        const destSlotId = getActualSlotId(itemSlots[1][0], destInvType);
+
         requestParams.action = "backpack";
+        requestParams.expected_itemtype = sourceItemType;
+        requestParams.itemnum = sourceSlotId;
+        requestParams.expected_itemtype2 = destItemType;
+        requestParams.itemnum2 = destSlotId;
+
         makeRequest("hotrods/backpack", requestParams, reloadStorage);
 
         return true;
