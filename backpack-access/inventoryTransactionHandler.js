@@ -1,33 +1,3 @@
-const transactionRules = [
-    {
-        name: "Backpack -> Storage (One-Way)",
-        condition: (itemSlots) => {
-            const sourceItemType = itemSlots[0][1];
-            const destItemType = itemSlots[1][1];
-            return sourceItemType === "backpackdisplay" && destItemType === "storage";
-        },
-        onConditionSuccess: internalTransactionHandler.handleBackpackToStorageOneWay
-    },
-    {
-        name: "Storage -> Backpack (One-Way)",
-        condition: (itemSlots) => {
-            const sourceItemType = itemSlots[0][1];
-            const destItemType = itemSlots[1][1];
-            return sourceItemType === "storage" && destItemType === "backpackdisplay";
-        },
-        onConditionSuccess: internalTransactionHandler.handleStorageToBackpackOneWay
-    },
-    {
-        name: "Backpack <-> Inventory (Storage page)",
-        condition: (itemSlots) => {
-            const sourceItemType = itemSlots[0][1];
-            const destItemType = itemSlots[1][1];
-            return document.getElementById("storage") && (sourceItemType === "backpackdisplay" || destItemType === "backpackdisplay");
-        },
-        onConditionSuccess: internalTransactionHandler.handleBackpackToInventoryInStorage
-    }
-];
-
 function getActualSlotId(slotNumber, inventoryType)
 {
     if (inventoryType === "storage")
@@ -209,6 +179,36 @@ const internalTransactionHandler = {
         return true;
     }
 };
+
+const transactionRules = [
+    {
+        name: "Backpack -> Storage (One-Way)",
+        condition: (itemSlots) => {
+            const sourceItemType = itemSlots[0][1];
+            const destItemType = itemSlots[1][1];
+            return sourceItemType === "backpackdisplay" && destItemType === "storage";
+        },
+        onConditionSuccess: internalTransactionHandler.handleBackpackToStorageOneWay
+    },
+    {
+        name: "Storage -> Backpack (One-Way)",
+        condition: (itemSlots) => {
+            const sourceItemType = itemSlots[0][1];
+            const destItemType = itemSlots[1][1];
+            return sourceItemType === "storage" && destItemType === "backpackdisplay";
+        },
+        onConditionSuccess: internalTransactionHandler.handleStorageToBackpackOneWay
+    },
+    {
+        name: "Backpack <-> Inventory (Storage page)",
+        condition: (itemSlots) => {
+            const sourceItemType = itemSlots[0][1];
+            const destItemType = itemSlots[1][1];
+            return document.getElementById("storage") && (sourceItemType === "backpackdisplay" || destItemType === "backpackdisplay");
+        },
+        onConditionSuccess: internalTransactionHandler.handleBackpackToInventoryInStorage
+    }
+];
 
 window.InventoryTransactionHandler = {
     executeTransaction(requestParams, itemSlots)
