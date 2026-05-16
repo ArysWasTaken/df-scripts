@@ -11,7 +11,7 @@ function serializeObject(obj)
         return pairs.join("&");
     }
 
-function makeRequest(requestUrl, requestParams, callbackFunc, callBackParams)
+function makeRequest(requestUrl, requestParams, callbackFunc, callbackParams = null)
 {
     return new Promise((resolve) =>
     {
@@ -26,7 +26,7 @@ function makeRequest(requestUrl, requestParams, callbackFunc, callBackParams)
                 let callbackResponse = null;
                 if (callbackFunc != null)
                 {
-                    callbackResponse = callbackFunc(this.responseText, callBackParams);
+                    callbackResponse = callbackFunc(this.responseText, callbackParams);
                 }
                 if (callbackResponse == null)
                 {
