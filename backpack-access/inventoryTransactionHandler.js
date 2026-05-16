@@ -184,37 +184,35 @@ const transactionRules = [
     {
         name: "Backpack -> Storage (One-Way)",
         condition: (itemSlots) => {
-            const sourceItemType = itemSlots[0][1];
-            const destItemType = itemSlots[1][1];
-            return sourceItemType === "backpackdisplay" && destItemType === "storage";
+            const sourceInvType = itemSlots[0][2];
+            const destInvType = itemSlots[1][2];
+            return sourceInvType === "backpackdisplay" && destInvType === "storage";
         },
         onConditionSuccess: internalTransactionHandler.handleBackpackToStorageOneWay
     },
     {
         name: "Storage -> Backpack (One-Way)",
         condition: (itemSlots) => {
-            const sourceItemType = itemSlots[0][1];
-            const destItemType = itemSlots[1][1];
-            return sourceItemType === "storage" && destItemType === "backpackdisplay";
+            const sourceInvType = itemSlots[0][2];
+            const destInvType = itemSlots[1][2];
+            return sourceInvType === "storage" && destInvType === "backpackdisplay";
         },
         onConditionSuccess: internalTransactionHandler.handleStorageToBackpackOneWay
     },
     {
         name: "Backpack <-> Inventory (Storage page)",
         condition: (itemSlots) => {
-            const sourceItemType = itemSlots[0][1];
-            const destItemType = itemSlots[1][1];
-            return document.getElementById("storage") && (sourceItemType === "backpackdisplay" || destItemType === "backpackdisplay");
+            const sourceInvType = itemSlots[0][2];
+            const destInvType = itemSlots[1][2];
+            return document.getElementById("storage") && (sourceInvType === "backpackdisplay" || destInvType === "backpackdisplay");
         },
         onConditionSuccess: internalTransactionHandler.handleBackpackToInventoryInStorage
     }
 ];
 
-window.InventoryTransactionHandler = {
-    executeTransaction(requestParams, itemSlots)
-    {
-        const matchedRule = transactionRules.find(rule => rule.condition(itemSlots));
-        let success = matchedRule?.onConditionSuccess(requestParams, itemSlots) ?? false;
-        return success;
-    }
-};
+function executeInventoryTransaction(requestParams, itemSlots)
+{
+    const matchedRule = transactionRules.find(rule => rule.condition(itemSlots));
+    let success = matchedRule?.onConditionSuccess(requestParams, itemSlots) ?? false;
+    return success;
+}
