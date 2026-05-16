@@ -1,4 +1,4 @@
-// Thanks to SilverBeam (creator of SilverScripts) for the serializeObject and makeRequest functions
+// Thanks to SilverBeam (creator of SilverScripts) for allowing me to use the serializeObject and makeRequest functions from SilverScripts
 
 function serializeObject(obj)
     {
