@@ -4,6 +4,7 @@
 // @version      1.0
 // @description  Shows the backpack inventory on the Storage, Marketplace and Crafting pages
 // @author       Arys
+// @license      CC BY-NC-SA 4.0
 // @match        https://fairview.deadfrontier.com/onlinezombiemmo/index.php?page=50
 // @match        https://fairview.deadfrontier.com/onlinezombiemmo/index.php?page=35
 // @match        https://fairview.deadfrontier.com/onlinezombiemmo/index.php?page=59
