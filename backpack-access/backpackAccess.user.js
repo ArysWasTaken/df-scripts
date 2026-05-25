@@ -14,8 +14,10 @@
 // @grant        unsafeWindow
 // @connect      localhost
 // @run-at       document-start
-// @require      https://cdn.jsdelivr.net/gh/ArysWasTaken/df-scripts@main/requestHandler.js
-// @require      https://cdn.jsdelivr.net/gh/ArysWasTaken/df-scripts@ff95aae3019f165e418a1f40141ba2a3277d0c69/backpack-access/inventoryTransactionHandler.js
+// @updateURL    https://github.com/ArysWasTaken/df-scripts/raw/refs/heads/main/backpack-access/backpackAccess.user.js
+// @downloadURL  https://github.com/ArysWasTaken/df-scripts/raw/refs/heads/main/backpack-access/backpackAccess.user.js
+// @require      https://cdn.jsdelivr.net/gh/ArysWasTaken/df-scripts/requestHandler.js
+// @require      https://cdn.jsdelivr.net/gh/ArysWasTaken/df-scripts/backpack-access/inventoryTransactionHandler.js
 // ==/UserScript==
 
 (function () {
