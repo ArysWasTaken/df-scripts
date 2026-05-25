@@ -17,8 +17,8 @@
 // @run-at       document-start
 // @updateURL    https://github.com/ArysWasTaken/df-scripts/raw/refs/heads/main/backpack-access/backpackAccess.user.js
 // @downloadURL  https://github.com/ArysWasTaken/df-scripts/raw/refs/heads/main/backpack-access/backpackAccess.user.js
-// @require      https://cdn.jsdelivr.net/gh/ArysWasTaken/df-scripts/requestHandler.js
-// @require      https://cdn.jsdelivr.net/gh/ArysWasTaken/df-scripts/backpack-access/inventoryTransactionHandler.js
+// @require      https://update.greasyfork.org/scripts/579721/1834453/DF%20RequestHandler.js
+// @require      https://update.greasyfork.org/scripts/579722/1834455/DF%20Backpack%20Transaction%20Handler.js
 // ==/UserScript==
 
 (function () {
