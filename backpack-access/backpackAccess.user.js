@@ -242,7 +242,18 @@
       };
 
       unsafeWindow.playSound("swap");
-      makeRequest("hotrods/backpack", requestParams, reloadStorage);
+      makeRequest("hotrods/backpack", requestParams, function (data) {
+        if (document.getElementById("storage")) {
+          reloadStorage(data);
+        } else {
+          unsafeWindow.updateIntoArr(
+            unsafeWindow.flshToArr(data, "DFSTATS_"),
+            userVars,
+          );
+          unsafeWindow.populateInventory();
+          unsafeWindow.populateBackpack();
+        }
+      });
     }
   }
 
