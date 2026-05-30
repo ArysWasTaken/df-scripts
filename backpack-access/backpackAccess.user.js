@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DF Backpack Access
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Shows the backpack inventory on the Storage, Marketplace and Crafting pages
 // @author       Arys
 // @license      CC BY-NC-SA 4.0
